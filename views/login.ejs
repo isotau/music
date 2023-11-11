@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<style>
+    @keyframes gradientFlow {
+    0% {
+        background-position: 0% 100%;
+    }
+    100% {
+        background-position: 100% 0%; /* Slide to the right */
+    }
+    }
+
+    html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(45deg, #6a82fb, #af63c2, #6a82fb, #af63c2); /* Repeating the gradient colors */
+    background-size: 400% 400%; /* Larger background size for a smoother transition */
+    animation: gradientFlow 15s linear infinite; /* Adjusted to linear for a constant speed */
+    position: relative;
+    overflow: hidden;
+    }
+
+    .container {
+      padding: 40px;
+      max-width: 400px;
+      color: white;
+      width: 100%;
+      background-color: rgba(255, 255, 255, 0.2); /* slightly transparent */
+      border-radius: 15px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(10px); /* blur effect */
+      border: 1px solid rgba(255, 255, 255, 0.3); /* subtle border */
+      text-align: center; /* Center the text */
+      margin: 20px; /* For some space around */
+      position: relative;
+            z-index: 2; /* Ensure the content is above the blob */
+           
+        position: relative;
+        text-align: center; /* Center content */
+    }
+
+.logo {
+  max-width: 150px; /* Adjust as needed */
+  margin-bottom: 0px; /* Space between the logo and the login form */
+}
+    body::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300px; /* or any size you want */
+  height: 300px; /* or any size you want */
+  background: rgba(255, 255, 255, 0.2); /* translucent white */
+  border-radius: 50%; /* makes it a circle */
+  transform: translate(-50%, -50%);
+  z-index: 1; /* ensures the blob is behind the content */
+}
+
+    label {
+    display: block;
+    margin-bottom: 5px; /* Reduces space between the label and the input box */
+}
+
+input[type="email"],
+input[type="password"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 20px; /* Increases space between each input box */
+    border-radius: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background-color: rgba(0, 0, 0, 0.2);
+    color: white;
+    outline: none;
+}
+
+button {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-top: 20px; 
+    border-radius: 5px;
+    background-color: #6a82fb;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+  
+    button {
+      background-color: #6a82fb; /* Button color */
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+    }
+  
+    button:hover {
+      background-color: #7a92fb;
+    }
+  
+    label {
+      text-align: left;
+      display: block; /* Make labels take up their own line */
+    }
+  
+    p {
+      margin-top: 20px;
+    }
+  
+    a {
+      color: white; /* Light purple color for contrast */
+      text-decoration: none;
+    }
+  
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+  
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    <div class="container">
+        <img src="/images/logo.png" alt="Logo" class="logo">
+
+        <form action="/login" method="POST">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            
+            <button type="submit">Login</button>
+        </form>
+        <p>Need an account? <a href="/signup">Sign Up</a></p>
+    </div>
+</body>
+</html>
